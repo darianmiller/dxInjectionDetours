@@ -106,11 +106,11 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="..\..\..\..\Dependencies\dxLib\Source\dxLib_ProcessList.pas"/>
-        <DCCReference Include="..\..\..\..\Dependencies\dxLib\Source\dxLib_ProcessNameToId.pas"/>
         <DCCReference Include="..\..\..\..\Dependencies\dxLib\Source\dxLib_Strings.pas"/>
         <DCCReference Include="..\..\..\..\Dependencies\dxLib\Source\dxLib_Types.pas"/>
         <DCCReference Include="..\..\..\..\Dependencies\dxLib\Source\dxLib_WinApi.pas"/>
         <DCCReference Include="..\..\..\..\Dependencies\dxLib\Source\dxLib_WinInjection.pas"/>
+        <DCCReference Include="..\..\..\..\Dependencies\dxLib\Source\dxLib_ProcessFileNameFromId.pas"/>
         <BuildConfiguration Include="Release">
             <Key>Cfg_2</Key>
             <CfgParent>Base</CfgParent>
