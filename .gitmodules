@@ -1,0 +1,6 @@
+[submodule "Dependencies/DDetours"]
+	path = Dependencies/DDetours
+	url = https://github.com/MahdiSafsafi/DDetours.git
+[submodule "Dependencies/dxLib"]
+	path = Dependencies/dxLib
+	url = https://github.com/darianmiller/dxLib.git
