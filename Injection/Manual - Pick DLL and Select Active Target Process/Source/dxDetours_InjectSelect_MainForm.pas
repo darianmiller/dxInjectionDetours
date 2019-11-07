@@ -33,8 +33,8 @@ type
     procedure FormCreate(Sender: TObject);
     procedure FormDestroy(Sender: TObject);
   private
-    fActiveProcesses:TaProcessEntryList;
-    function GetSelectedProcess(const pRowToSelect:Integer=-1):TiaProcessEntryItem;
+    fActiveProcesses:TdxProcessEntryList;
+    function GetSelectedProcess(const pRowToSelect:Integer=-1):TdxProcessEntryItem;
     procedure SetInjectionEnabled(const pRowToSelect:Integer=-1);
   public
     { Public declarations }
@@ -61,7 +61,7 @@ uses
 
 procedure TfrmMain.FormCreate(Sender: TObject);
 begin
-  fActiveProcesses := TaProcessEntryList.Create();
+  fActiveProcesses := TdxProcessEntryList.Create();
 
   sgProcesses.ColCount := COL_COUNT;
   sgProcesses.ColWidths[COL_ProcessId] := 65;
@@ -94,7 +94,7 @@ end;
 procedure TfrmMain.butRefreshProcessesClick(Sender: TObject);
 var
   i:Integer;
-  vProcess:TiaProcessEntryItem;
+  vProcess:TdxProcessEntryItem;
   vRow:Integer;
 begin
   SetInjectionEnabled();
@@ -108,7 +108,7 @@ begin
 
   for i := 0 to fActiveProcesses.Count-1 do
   begin
-    vProcess := TiaProcessEntryItem(fActiveProcesses[i]);
+    vProcess := TdxProcessEntryItem(fActiveProcesses[i]);
     sgProcesses.RowCount := vRow+1;
     sgProcesses.Cells[COL_ProcessId,vRow] := Format('%d', [vProcess.ProcessID]);
     sgProcesses.Cells[COL_ExeName,vRow] := vProcess.ExeFile;
@@ -136,7 +136,7 @@ procedure TfrmMain.butInjectClick(Sender: TObject);
 Const
   SuppressOSError = True;
 var
-  vProcess:TiaProcessEntryItem;
+  vProcess:TdxProcessEntryItem;
   vLastError:DWORD;
 begin
   edtResult.Text := '';
@@ -168,7 +168,7 @@ begin
 end;
 
 
-function TfrmMain.GetSelectedProcess(const pRowToSelect:Integer=-1):TiaProcessEntryItem;
+function TfrmMain.GetSelectedProcess(const pRowToSelect:Integer=-1):TdxProcessEntryItem;
 var
   vRow:Integer;
 begin
@@ -180,9 +180,9 @@ begin
   end;
   if sgProcesses.RowCount > 0 then
   begin
-    if sgProcesses.Objects[COL_ObjectReference,vRow] is TiaProcessEntryItem then
+    if sgProcesses.Objects[COL_ObjectReference,vRow] is TdxProcessEntryItem then
     begin
-      Result := TiaProcessEntryItem(sgProcesses.Objects[COL_ObjectReference,vRow]);
+      Result := TdxProcessEntryItem(sgProcesses.Objects[COL_ObjectReference,vRow]);
     end;
   end;
 end;
@@ -190,7 +190,7 @@ end;
 
 procedure TfrmMain.SetInjectionEnabled(const pRowToSelect:Integer=-1);
 var
-  vProcess:TiaProcessEntryItem;
+  vProcess:TdxProcessEntryItem;
 begin
   labSelectedProcess.Caption := '';
   vProcess := GetSelectedProcess(pRowToSelect);
