@@ -1,2 +1,2 @@
 # dxInjectionDetours
-Delphi DLL Injection and Detours
+DLL Injection with DelphiDetours
